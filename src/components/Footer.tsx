@@ -11,7 +11,7 @@ const logos = [
 ];
 const Footer = () => {
   return (
-    <div className="w-full space-y-10">
+    <div className="w-full space-y-4 md:pb-0 pb-20">
       <div className="flex items-center gap-x-4">
         {logos.map((logo, i) => (
           <div className="w-8 aspect-square relative" key={i}>

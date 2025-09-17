@@ -9,7 +9,7 @@ export type trendCardProps = {
 
 const TrendCard = ({ props }: { props: trendCardProps }) => {
   return (
-    <div className="w-full h-full py-2 flex flex-col justify-between pl-12">
+    <div className="w-full h-full py-2 flex flex-col justify-between md:pl-12 ">
       <div className="flex items-center gap-x-4">
         <div className="h-8 relative aspect-square rounded-[10px]">
           <Image
@@ -21,7 +21,7 @@ const TrendCard = ({ props }: { props: trendCardProps }) => {
         </div>
         <h4 className="text-base">{props.writerName}</h4>
       </div>
-      <p className="font-saira-condensed font-bold text-2xl uppercase">
+      <p className="font-saira-condensed font-bold md:text-2xl text-xl uppercase md:py-0 py-2">
         {props.description}
       </p>
       <button className="text-start border-b border-b-transparent hover:text-primary hover:border-b-primary/60 py-4 border-t hover:cursor-pointer border-t-theme-lighter-black">

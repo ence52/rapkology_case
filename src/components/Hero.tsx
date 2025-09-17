@@ -8,7 +8,7 @@ import HeroSlider from "./HeroSlider";
 import heroData from "@/data/hero_data";
 const Hero = () => {
   return (
-    <section className="h-[700px] w-full relative">
+    <section className="md:h-[700px] h-[770px] w-full relative">
       <Swiper className="h-full">
         {heroData.map((item, index) => (
           <SwiperSlide key={index} className="h-full">

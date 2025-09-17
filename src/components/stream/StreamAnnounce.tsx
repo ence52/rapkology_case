@@ -2,10 +2,10 @@ import React from "react";
 import Image from "next/image";
 const StreamAnnounce = () => {
   return (
-    <div className="absolute top-14 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-y-6 rotate-[-4deg]">
+    <div className="absolute z-10 top-14 left-1/2 transform -translate-x-1/2 flex flex-col items-center md:gap-y-6 gap-y-2 rotate-[-4deg]">
       <div className="flex items-center">
         {/* Logo */}
-        <div className="relative w-3/7 aspect-square ">
+        <div className="relative md:w-3/7 w-full aspect-square ">
           <Image
             src={"/stream_section/twitch_logo.svg"}
             alt="Twitch Logo"
@@ -17,10 +17,10 @@ const StreamAnnounce = () => {
         <div className=" flex flex-col pl-6 border-l-1 border-theme-white/50">
           <h1
             style={{ fontFamily: "var(--font-saira-condensed)" }}
-            className="text-6xl font-light "
+            className="md:text-6xl text-4xl font-light "
           >
             HER HAFTA{" "}
-            <span className="text-6xl font-bold text-primary ">
+            <span className="md:text-6xl text-4xl font-bold text-primary ">
               CANLIDAYIZ!
             </span>
           </h1>
@@ -28,7 +28,7 @@ const StreamAnnounce = () => {
         </div>
       </div>
       {/* Buttons */}
-      <div className="w-[300px] h-[66px] flex items-center border justify-between  border-white/50 p-3.5 rounded-2xl">
+      <div className="w-[300px] h-[66px] md:scale-100 scale-75 flex items-center border justify-between  border-white/50 p-3.5 rounded-2xl">
         <div className="py-2.5 px-3.5 flex hover:cursor-pointer items-center gap-x-2 rounded-md bg-twitch-purple">
           <Image
             src={"/icons/heart.svg"}

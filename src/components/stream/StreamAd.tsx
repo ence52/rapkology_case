@@ -3,9 +3,16 @@ import Image from "next/image";
 import StreamAnnounce from "./StreamAnnounce";
 const StreamAd = () => {
   return (
-    <section className="w-full h-[642px]  relative bg-[url('/stream_section/group.png')] bg-cover ">
-      <div className="w-full h-full flex justify-between px-[10%] pt-[6%] items-center">
-        <div className="relative  h-[400px] aspect-square">
+    <section className="w-full md:h-[642px] h-[536px]  relative overflow-hidden">
+      <StreamAnnounce />
+      <div className="w-full h-full flex  justify-between md:px-[10%]  md:pt-[6%] pt-70 items-center">
+        <Image
+          src={"/stream_section/group.png"}
+          alt=""
+          fill
+          className="object-cover"
+        />
+        <div className="relative md:h-[400px] h-[220px] aspect-square">
           <Image
             src={"/stream_section/stream_img_1.png"}
             alt=""
@@ -14,7 +21,7 @@ const StreamAd = () => {
           />
         </div>
 
-        <div className="relative  h-[500px] aspect-[9/16]">
+        <div className="relative  md:h-[500px] h-[300px] aspect-[9/16]">
           <Image
             src={"/stream_section/stream_img_2.png"}
             alt=""
@@ -23,7 +30,7 @@ const StreamAd = () => {
           />
         </div>
       </div>
-      <StreamAnnounce />
+
       <Image
         src={"/flipped_mountains.svg"}
         alt=""
