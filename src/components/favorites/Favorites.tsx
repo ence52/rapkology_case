@@ -1,6 +1,7 @@
+"use client";
 import Image from "next/image";
 import React from "react";
-
+import "swiper/css";
 const Favorites = () => {
   return (
     <section className="w-full md:h-[447px] md:px-20 px-4 md:flex  ">
@@ -32,7 +33,7 @@ const Favorites = () => {
         </h2>
       </div>
       {/* Right Side */}
-      <div className="md:w-3/5 w-full h-full bg-primary"></div>
+      <div className="md:w-3/5 w-full pl-0 md:pl-10 gap-x-10  h-full flex items-center bg-primary"></div>
     </section>
   );
 };

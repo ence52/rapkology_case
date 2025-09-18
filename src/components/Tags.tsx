@@ -3,28 +3,42 @@ import tags from "@/data/tags";
 import Link from "next/link";
 import React, { useState } from "react";
 import { IoCompassOutline } from "react-icons/io5";
-
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import TagButton from "./TagButton";
 const Tags = () => {
   const [selectedTag, setSelectedTag] = useState(0);
   return (
     <div className=" flex flex-col gap-y-6 ">
-      <h2 className="text-4xl font-bold font-saira-condensed">
-        NE GÖRMEK İSTERSİN?
-      </h2>
-      <div className="flex-wrap flex gap-2">
+      <div className="flex-wrap md:flex hidden gap-2 ">
         {tags.map((tag, index) => (
-          <button
+          <TagButton
             key={index}
-            className={`block border cursor-pointer px-2 py-1 text-base overflow-clip  ${
-              selectedTag === index
-                ? "text-theme-black bg-primary border-transparent"
-                : " border-white text-white"
-            }`}
-            onClick={() => setSelectedTag(index)}
-          >
-            {tag}
-          </button>
+            tag={tag}
+            index={index}
+            selectedTag={selectedTag}
+            setSelectedTag={setSelectedTag}
+          />
         ))}
+      </div>
+      <div className="md:hidden block">
+        <Swiper
+          className="w-full"
+          spaceBetween={10}
+          slidesPerView="auto"
+          freeMode={true}
+        >
+          {tags.map((tag, index) => (
+            <SwiperSlide key={index} className="!w-auto">
+              <TagButton
+                tag={tag}
+                index={index}
+                selectedTag={selectedTag}
+                setSelectedTag={setSelectedTag}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </div>
   );

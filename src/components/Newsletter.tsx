@@ -2,7 +2,7 @@ import React from "react";
 import { FaArrowRight } from "react-icons/fa6";
 const Newsletter = () => {
   return (
-    <div className=" flex flex-col gap-y-6 ">
+    <div className="w-full flex flex-col gap-y-6 ">
       <h2 className="text-4xl font-bold font-saira-condensed">
         GELİŞMELERDEN İLK SEN HABERDAR OL!
       </h2>

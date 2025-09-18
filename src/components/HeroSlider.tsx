@@ -1,6 +1,7 @@
 import React from "react";
-import ClippedButton from "./ClippedButton";
+
 import Image from "next/image";
+import Link from "next/link";
 export type HeroSliderProps = {
   title: string;
   description: string;
@@ -24,7 +25,12 @@ const HeroSlider = ({
           {title}
         </h1>
         <p className="md:text-base  ">{description}</p>
-        <ClippedButton label="Devamını Gör" link="#" color="bg-primary" />
+        <Link
+          href={"/"}
+          className={`clip-button  text-center flex items-center justify-center text-black font-bold text-base w-[186px] h-[48px] bg-primary`}
+        >
+          <span>{"Devamını Gör"}</span>
+        </Link>
       </div>
       <Image
         src={photoUrl}
