@@ -1,5 +1,5 @@
 "use client";
-import data from "@/data/mock_data";
+import mock_data from "@/data/mock_data";
 import { use } from "react";
 import Image from "next/image";
 import { FaRegHeart } from "react-icons/fa";
@@ -7,6 +7,7 @@ import { HiOutlineChatBubbleOvalLeft } from "react-icons/hi2";
 import MoreContent from "@/components/more_content/MoreContent";
 import { usePathname } from "next/navigation";
 import Breadcrumbs from "@/components/BreadCrumbs";
+import { LuEye } from "react-icons/lu";
 
 export default function BlogPostPage({
   params,
@@ -15,7 +16,7 @@ export default function BlogPostPage({
 }) {
   const { slug } = use(params);
 
-  const post = data.find((p) => p.attributes.slug === slug);
+  const post = mock_data.find((p) => p.attributes.slug === slug);
 
   if (!post) {
     return <div>Post not found</div>;
@@ -24,6 +25,10 @@ export default function BlogPostPage({
   return (
     <div className="flex flex-col gap-y-[30px] w-full">
       <Breadcrumbs />
+      <div className="flex items-center gap-x-2">
+        <LuEye />
+        <p>12.052</p>
+      </div>
       <h1 className="text-5xl uppercase font-bold font-saira-condensed">
         {post.attributes.title}
       </h1>

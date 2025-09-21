@@ -26,7 +26,7 @@ const HeroSlider = ({
         </h1>
         <p className="md:text-base  ">{description}</p>
         <Link
-          href={"/"}
+          href={"/blog"}
           className={`clip-button z-30 text-center flex items-center justify-center text-black font-bold text-base w-[186px] h-[48px] bg-primary`}
         >
           <span>{"Devamını Gör"}</span>
@@ -36,7 +36,7 @@ const HeroSlider = ({
         src={photoUrl}
         alt={title}
         layout="fill"
-        className="object-cover -z-10  "
+        className="object-cover -z-10"
       />
     </div>
   );

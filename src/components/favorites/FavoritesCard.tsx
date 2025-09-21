@@ -4,9 +4,9 @@ import React from "react";
 
 const FavoritesCard = ({ index, fav }: { index: number; fav: Favorite }) => {
   return (
-    <div className="w-full h-full select-none hover:cursor-pointer items-center justify-center flex relative overflow-hidden group">
-      <div className="text-center space-y-5 right-10 absolute group-hover:opacity-0 ease-in-out duration-500">
-        <p className="px-4 py-[5px] bg-theme-light-gray rounded-full  ">
+    <div className="w-full bg-theme-gray h-full select-none hover:cursor-pointer items-center justify-center flex flex-col md:flex-row relative overflow-hidden group">
+      <div className="text-center space-y-5 md:right-10 absolute  group-hover:opacity-0 ease-in-out duration-500">
+        <p className="px-4 py-[5px] bg-theme-light-gray rounded-full  md:mt-0 mt-30">
           TOP 10 <span className="font-bold">{`${index + 1}.Sıra`}</span>
         </p>
         <div className="text-xl leading-6">
@@ -20,8 +20,8 @@ const FavoritesCard = ({ index, fav }: { index: number; fav: Favorite }) => {
         </div>
       </div>
       <div
-        className="absolute top-1/2 left-0 h-2/3 aspect-square 
-             -translate-x-1/2 -translate-y-1/2 -rotate-[10deg] flex items-center justify-center
+        className="absolute md:top-1/2 md:left-0 top-10 md:h-2/3 h-1/3 aspect-square 
+             md:-translate-x-1/2 md:-translate-y-[52%] -rotate-[10deg] flex items-center justify-center
              transition-all duration-500 ease-in-out 
              group-hover:left-1/2 group-hover:rotate-0"
       >
@@ -34,6 +34,23 @@ const FavoritesCard = ({ index, fav }: { index: number; fav: Favorite }) => {
             className="absolute"
           />
         </div>
+      </div>
+      <div className="w-full h-6  absolute bottom-0 bg-theme-black "></div>
+      <div className="w-full h-10  absolute bottom-0.5  scale-[-1] -rotate-6">
+        <Image
+          alt=""
+          src={"/mountains_dark_yellow.svg"}
+          className="scale-110"
+          fill
+        />
+      </div>
+      <div className="w-full h-10  absolute bottom-2  scale-[-1] -rotate-6">
+        <Image
+          alt=""
+          src={"/mountains_yellow.svg"}
+          fill
+          className="scale-110"
+        />
       </div>
     </div>
   );

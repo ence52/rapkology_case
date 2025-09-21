@@ -7,7 +7,7 @@ import Newsletter from "@/components/Newsletter";
 import Tags from "@/components/Tags";
 import TrendsGrid from "@/components/trends/TrendsGrid";
 import TrendsTitle from "@/components/trends/TrendsTitle";
-import data from "@/data/mock_data";
+import mock_data from "@/data/mock_data";
 import Image from "next/image";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -15,12 +15,19 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
+import BlogCard from "@/components/BlogCard";
+import Link from "next/link";
+import ClipCard from "@/components/ClipCard";
+import { BsCameraVideoFill } from "react-icons/bs";
+import tags from "@/data/tags";
+import { useData } from "@/context/DataContext";
 
 const Blog = () => {
+  const { setData } = useData();
   return (
-    <div className="py-20 md:px-20 px-4 space-y-12">
+    <div className="py-20 md:px-20 px-4 space-y-12 ">
       {/* Blog Hero Section */}
-      <div className="w-full relative overflow-hidden p-14 pb-24 bg-primary text-black font-saira-condensed uppercase font-bold leading-7">
+      <div className="w-full relative overflow-hidden p-4 md:p-14 pb-24 bg-primary text-black font-saira-condensed uppercase font-bold leading-7">
         <Image
           src="/blog/texture.png"
           alt="Blog Hero"
@@ -40,10 +47,9 @@ const Blog = () => {
         <div className="relative z-20">
           <Breadcrumbs />
           <h1 className="text-5xl font-bold py-6">BLOG</h1>
-          <div className="grid grid-cols-5 grid-rows-4 gap-y-2 gap-x-4">
-            <div className="col-span-3 row-span-4 relative">
+          <div className="md:grid md:grid-cols-5 flex flex-col md:grid-rows-4 gap-y-2 gap-x-4">
+            <div className="md:col-span-3 md:row-span-4 relative ">
               <Swiper
-                className="h-full"
                 modules={[Pagination]}
                 pagination={{
                   clickable: true,
@@ -52,37 +58,27 @@ const Blog = () => {
                   bulletActiveClass: "blog-bullet-active",
                 }}
               >
-                {data.map((item, index) => (
+                {mock_data.map((item, index) => (
                   <SwiperSlide key={index} className="h-full">
                     <BlogPageSlider {...item} />
                   </SwiperSlide>
                 ))}
               </Swiper>
-              <div className="blog-pagination gap-x-1 h-5 flex items-center"></div>
+              <div className="blog-pagination md:hidden gap-x-1 h-6 flex justify-center items-center "></div>
             </div>
 
             {/* Right Side */}
-            {data.slice(0, 4).map((post, index) => (
-              <div
-                key={index}
-                className="col-span-2 row-span-1 flex gap-x-4 items-center text-2xl"
-              >
-                <div className="h-24 relative aspect-video">
-                  <Image
-                    src={post.attributes.img}
-                    alt={post.attributes.title}
-                    layout="fill"
-                    className="object-cover"
-                  />
-                </div>
-                <p className="line-clamp-3 leading-6">{post.attributes.desc}</p>
-              </div>
+            {mock_data.slice(0, 4).map((post, index) => (
+              <BlogCard key={index} {...post} />
             ))}
+          </div>
+          <div className="blog-pagination gap-x-1 h-6 md:flex hidden items-center absolute left-1/2 z-30 -translate-x-[25%] bottom-10">
+            a
           </div>
         </div>
 
-        <div className="flex">
-          <div className="w-full h-40 absolute -bottom-20 scale-60 -left-90">
+        <div className="flex ">
+          <div className="w-full h-40 absolute -bottom-20 md:scale-60 md:-left-90  scale-x-150">
             <Image
               src={"/mountains_2.svg"}
               alt=""
@@ -90,7 +86,7 @@ const Blog = () => {
               className="object-cover"
             />
           </div>
-          <div className="w-full h-40 absolute -bottom-20 -right-90 scale-x-[-0.6] scale-y-60">
+          <div className="w-full h-40 absolute  -bottom-20 md:-right-90 hidden md:block scale-x-[-0.6] scale-y-60">
             <Image
               src={"/mountains_2.svg"}
               alt=""
@@ -102,12 +98,60 @@ const Blog = () => {
       </div>
 
       {/* Explore Section */}
-      <ExploreTitle />
-      <Tags />
-      <TrendsGrid cols={4} rows={2} isVertical={true} />
+      <div id="explore" className="space-y-12 relative w-full overflow-hidden">
+        <ExploreTitle />
+        {/* Tags  */}
+        <div className="flex-wrap md:flex hidden gap-2 ">
+          {tags.map((tag, index) => (
+            <button
+              onClick={() =>
+                setData(
+                  mock_data.filter((post) => post.attributes.tags.includes(tag))
+                )
+              }
+              key={index}
+              className={`border cursor-pointer px-2 py-1 text-base overflow-clip 
+       `}
+            >
+              {tag}
+            </button>
+          ))}
+        </div>
+        <TrendsGrid cols={4} rows={2} isVertical={true} />
+        <div className="w-3/5 aspect-square absolute -z-10  top-8 -rotate-[14deg] -left-30">
+          <Image
+            alt="logo"
+            src={"/diamond.svg"}
+            fill
+            className="object-contain"
+          />
+        </div>
+      </div>
+      {/* Clips */}
+      <div className="md:hidden space-y-4">
+        <div className="flex items-center gap-x-3 select-none">
+          <h2 className=" text-4xl font-bold font-saira-condensed">KLİPLER</h2>
+          <BsCameraVideoFill className=" text-4xl text-primary " />
+        </div>
+        <div className="flex flex-col gap-y-10">
+          {mock_data.map((post, index) => (
+            <ClipCard {...post} key={index} />
+          ))}
+        </div>
+      </div>
       {/* Footer and Newsletter Section */}
-      <div className="w-full flex gap-x-[18%]">
-        <Newsletter />
+      <div className="w-full md:flex gap-x-[18%] items-end space-y-8 md:space-y-0">
+        <div className="w-full  flex flex-col ">
+          <Link href={"/"} className="w-2/3  h-26 relative">
+            <Image
+              alt="logo"
+              src={"/logo.svg"}
+              fill
+              className="object-contain"
+            />
+          </Link>
+          <Newsletter />
+        </div>
         <Footer />
       </div>
     </div>

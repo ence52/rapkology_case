@@ -12,7 +12,7 @@ const BlogPostLayout = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <div className="md:py-36  pt-36 md:grid md:grid-cols-5 gap-x-[8%] md:px-20 px-4">
+    <div className="md:py-36  pt-20 md:grid md:grid-cols-5 gap-x-[8%] md:px-20 px-4">
       <div className="col-span-3 flex flex-col gap-y-10 items-center md:py-0 py-10">
         {children}
         <TrendsTitle />

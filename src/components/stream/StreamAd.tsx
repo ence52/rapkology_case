@@ -31,13 +31,9 @@ const StreamAd = () => {
         </div>
       </div>
 
-      <Image
-        src={"/flipped_mountains.svg"}
-        alt=""
-        width={1440}
-        height={217}
-        className="object-cover absolute bottom-0 transform scale-x-[-1]"
-      />
+      <div className="w-full h-40 absolute z-20  -bottom-10 -left-10 scale-200 ">
+        <Image src={"/mountains_2.svg"} alt="" fill className="object-cover" />
+      </div>
     </section>
   );
 };

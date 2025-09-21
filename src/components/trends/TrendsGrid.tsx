@@ -1,7 +1,9 @@
+"use client";
 import React from "react";
 import TrendCard from "./TrendCard";
-import data from "@/data/mock_data";
+import mock_data from "@/data/mock_data";
 import Link from "next/link";
+import { useData } from "@/context/DataContext";
 
 const TrendsGrid = ({
   cols,
@@ -12,6 +14,7 @@ const TrendsGrid = ({
   rows: number;
   isVertical: boolean;
 }) => {
+  const { data } = useData();
   return (
     <div
       className={`w-full h-full  grid ${isVertical ? "gap-10" : "gap-2.5"} ${
@@ -23,7 +26,7 @@ const TrendsGrid = ({
     ${rows === 3 ? "md:grid-rows-3" : ""}`}
     >
       {data.slice(0, cols * rows).map((post, index) => (
-        <div key={index} className="w-full h-full flex group ">
+        <div key={index} className="w-full h-full flex group">
           <div
             className={`w-1/5 h-full select-none ${
               isVertical ? "hidden " : ""
@@ -38,7 +41,7 @@ const TrendsGrid = ({
       ))}
       <div className="col-span-full flex justify-center ">
         <Link
-          href={"#"}
+          href={"/blog"}
           className={`clip-button  text-center hover:bg-primary duration-500 py-2 flex items-center justify-center text-black font-bold text-base w-[186px] h-[48px] bg-white`}
         >
           <span>{"Tümünü Gör"}</span>

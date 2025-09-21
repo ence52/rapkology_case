@@ -28,7 +28,7 @@ export type Seo = {
   metaDescription: string;
 };
 
-const data: Post[] = [
+const mock_data: Post[] = [
   {
     _id: "68b14b479a63b6901bbed82e",
     user_id: "65a11bebe1495d4af5f535c4",
@@ -312,4 +312,4 @@ const data: Post[] = [
     __v: 0,
   },
 ];
-export default data;
+export default mock_data;

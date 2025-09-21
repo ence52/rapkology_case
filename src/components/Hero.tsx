@@ -38,19 +38,13 @@ const Hero = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-
-      <Image
-        src={"/mountains.svg"}
-        alt=""
-        width={1440}
-        height={186}
-        className="object-cover absolute bottom-0 z-10 "
-      />
-
+      <div className="w-full h-40 absolute z-20 scale-x-[-1] -bottom-20 -left-10 scale-110 ">
+        <Image src={"/mountains_2.svg"} alt="" fill className="object-cover" />
+      </div>
       {/* Prev Button */}
       <div
         ref={prevRef}
-        className="absolute left-20 top-1/2 -translate-y-1/2 z-10 cursor-pointer"
+        className="absolute md:left-20 left-4 top-1/2 -translate-y-1/2 z-10 cursor-pointer"
       >
         <GoArrowLeft className="text-4xl" />
       </div>
@@ -58,7 +52,7 @@ const Hero = () => {
       {/* Next Button */}
       <div
         ref={nextRef}
-        className="absolute right-20 top-1/2 -translate-y-1/2 z-10 cursor-pointer"
+        className="absolute md:right-20 right-4 top-1/2 -translate-y-1/2 z-10 cursor-pointer"
       >
         <GoArrowRight className="text-4xl" />
       </div>

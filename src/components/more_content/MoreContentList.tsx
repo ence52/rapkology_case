@@ -1,11 +1,11 @@
 import React from "react";
-import data from "@/data/mock_data";
+import mock_data from "@/data/mock_data";
 import Image from "next/image";
 import Link from "next/link";
 const MoreContentList = () => {
   return (
     <ul className="divide-y-2 divide-theme-light-gray">
-      {data.slice(0, 3).map((item, index) => (
+      {mock_data.slice(0, 3).map((item, index) => (
         <li key={index} className="relative">
           <Link
             href={`/blog/${item.attributes.slug}`}

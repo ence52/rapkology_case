@@ -5,6 +5,10 @@
   --foreground: #ffffff;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 @theme inline {
   --color-primary: #f0e74d;
   --color-primary-darker: #676103;

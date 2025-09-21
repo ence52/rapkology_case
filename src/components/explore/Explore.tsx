@@ -5,23 +5,24 @@ import Tags from "../Tags";
 import Newsletter from "../Newsletter";
 import Footer from "../Footer";
 import ExploreTitle from "./ExploreTitle";
-import data from "@/data/mock_data";
+import mock_data from "@/data/mock_data";
 import formatDate from "@/utils/FormatDate";
 import TagsTitle from "../TagsTitle";
+import Link from "next/link";
 
 const Explore = () => {
   return (
-    <div
-      id="#explore"
+    <section
+      id="explore"
       className="w-full  md:p-20 px-4 md:grid md:grid-cols-3 gap-x-20"
     >
       {/* Left Side */}
       <div className="md:col-span-2 pb-20  flex flex-col md:gap-y-10 gap-y-2">
         <ExploreTitle />
-        <div className="md:hidden block pb-10">
+        <div className="md:hidden flex pb-10">
           <Tags />
         </div>
-        {data.map((post, index) => (
+        {mock_data.map((post, index) => (
           <div key={index} className="w-full h-full flex md:flex-row flex-col ">
             <div className="md:w-2/5 md:h-full w-full ">
               <div className="w-full aspect-video relative">
@@ -39,9 +40,12 @@ const Explore = () => {
             <TrendCard post={post} isVertical={false} />
           </div>
         ))}
-        <button className="clip-button cursor-pointer hover:bg-primary duration-300  md:px-10 px-6 py-2 text-sm md:text-base md:py-4 mx-auto font-bold bg-white text-black">
+        <Link
+          href={"/blog"}
+          className="clip-button cursor-pointer hover:bg-primary duration-300  md:px-10 px-6 py-2 text-sm md:text-base md:py-4 mx-auto font-bold bg-white text-black"
+        >
           Tümünü Gör
-        </button>
+        </Link>
       </div>
 
       {/* Right Side */}
@@ -53,7 +57,7 @@ const Explore = () => {
         <Newsletter />
         <Footer />
       </div>
-    </div>
+    </section>
   );
 };
 

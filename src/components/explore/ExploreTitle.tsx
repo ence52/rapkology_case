@@ -4,7 +4,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { IoGrid } from "react-icons/io5";
 const ExploreTitle = () => {
   return (
-    <div className="w-full  flex justify-between">
+    <div className="w-full  flex justify-between select-none">
       <div className="flex items-center gap-x-5 self-start">
         <h2 className="md:text-6xl text-4xl font-bold font-saira-condensed">
           KEŞFET
