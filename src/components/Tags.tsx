@@ -17,7 +17,6 @@ const Tags = () => {
             tag={tag}
             index={index}
             selectedTag={selectedTag}
-            setSelectedTag={setSelectedTag}
           />
         ))}
       </div>
@@ -30,12 +29,7 @@ const Tags = () => {
         >
           {tags.map((tag, index) => (
             <SwiperSlide key={index} className="!w-auto">
-              <TagButton
-                tag={tag}
-                index={index}
-                selectedTag={selectedTag}
-                setSelectedTag={setSelectedTag}
-              />
+              <TagButton tag={tag} index={index} selectedTag={selectedTag} />
             </SwiperSlide>
           ))}
         </Swiper>

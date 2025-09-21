@@ -27,7 +27,7 @@ const HeroSlider = ({
         <p className="md:text-base  ">{description}</p>
         <Link
           href={"/"}
-          className={`clip-button  text-center flex items-center justify-center text-black font-bold text-base w-[186px] h-[48px] bg-primary`}
+          className={`clip-button z-30 text-center flex items-center justify-center text-black font-bold text-base w-[186px] h-[48px] bg-primary`}
         >
           <span>{"Devamını Gör"}</span>
         </Link>

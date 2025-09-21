@@ -41,10 +41,10 @@ const TrendCard = ({
             />
           </div>
         )}
-        <p className="font-saira-condensed font-bold md:text-2xl text-xl uppercase md:py-0 py-2 leading-6 group-hover:text-primary duration-300">
+        <p className="font-saira-condensed font-bold md:text-xl text-xl uppercase md:py-0 py-2 leading-6  duration-300">
           {post.attributes.desc}
         </p>
-        <button className="text-start border-b border-b-transparent group-hover:text-primary duration-300 hover:border-b-primary/60 py-4 border-t hover:cursor-pointer border-t-theme-lighter-black">
+        <button className="text-start border-b border-b-transparent duration-300 hover:border-b-white/60 py-4 border-t hover:cursor-pointer border-t-theme-lighter-black">
           Daha Fazla Oku
         </button>
       </div>

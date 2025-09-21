@@ -16,6 +16,7 @@
   --color-theme-white: #ffffff;
   --color-twitch-purple: #864cf6;
 }
+
 @layer utilities {
   .clip-button {
     clip-path: polygon(0 3%, 100% 0%, 95% 100%, 3% 92%);
@@ -33,4 +34,28 @@ body {
 
 .font-saira-condensed {
   font-family: var(--font-saira-condensed), sans-serif;
+}
+
+.favorites-bullet {
+  @apply w-full duration-300 bg-gray-400 opacity-50 cursor-pointer;
+}
+
+.favorites-bullet-active {
+  @apply bg-primary opacity-100 rounded-full;
+}
+
+.hero-bullet {
+  @apply h-2.5 w-2.5  rounded-full  bg-theme-light-black opacity-80 cursor-pointer;
+}
+
+.hero-bullet-active {
+  @apply bg-primary opacity-100 rounded-full h-2.5  w-2.5;
+}
+
+.blog-bullet {
+  @apply h-2 w-2  rounded-full  bg-theme-light-black opacity-80 cursor-pointer;
+}
+
+.blog-bullet-active {
+  @apply bg-black opacity-100 rounded-full h-2.5  w-2.5;
 }

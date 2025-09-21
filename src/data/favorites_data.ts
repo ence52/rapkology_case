@@ -20,4 +20,34 @@ export const favorites: Favorite[] = [
     album: "Rüzgar",
     photoUrl: "/favorites_section/ceza.png",
   },
+  {
+    singer: "50 Cent",
+    album: "Curtis",
+    photoUrl: "/favorites_section/fifty_cent.png",
+  },
+  {
+    singer: "Snoop Dogg",
+    album: "Algorithm",
+    photoUrl: "/favorites_section/snoop_dogg.png",
+  },
+  {
+    singer: "Ceza",
+    album: "Rüzgar",
+    photoUrl: "/favorites_section/ceza.png",
+  },
+  {
+    singer: "50 Cent",
+    album: "Curtis",
+    photoUrl: "/favorites_section/fifty_cent.png",
+  },
+  {
+    singer: "Snoop Dogg",
+    album: "Algorithm",
+    photoUrl: "/favorites_section/snoop_dogg.png",
+  },
+  {
+    singer: "Ceza",
+    album: "Rüzgar",
+    photoUrl: "/favorites_section/ceza.png",
+  },
 ];

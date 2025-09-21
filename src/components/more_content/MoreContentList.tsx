@@ -19,7 +19,7 @@ const MoreContentList = () => {
                 fill
               />
             </div>
-            <span className="font-saira-condensed hover:text-primary duration-300 font-bold text-2xl uppercase">
+            <span className="font-saira-condensed hover:text-primary duration-500 font-bold text-2xl uppercase">
               {item.attributes.title}
             </span>
           </Link>

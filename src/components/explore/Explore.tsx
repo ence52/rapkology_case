@@ -11,7 +11,10 @@ import TagsTitle from "../TagsTitle";
 
 const Explore = () => {
   return (
-    <div className="w-full  md:p-20 px-4 md:grid md:grid-cols-3 gap-x-20">
+    <div
+      id="#explore"
+      className="w-full  md:p-20 px-4 md:grid md:grid-cols-3 gap-x-20"
+    >
       {/* Left Side */}
       <div className="md:col-span-2 pb-20  flex flex-col md:gap-y-10 gap-y-2">
         <ExploreTitle />

@@ -22,7 +22,7 @@ const Breadcrumbs = () => {
         <span key={index} className={`${index !== 0 ? "ml-2" : ""}`}>
           <Link
             href={crumb.href}
-            className=" hover:text-primary duration-300 uppercase mr-2"
+            className=" hover:text-primary duration-500 uppercase mr-2"
           >
             {crumb.name}
           </Link>
