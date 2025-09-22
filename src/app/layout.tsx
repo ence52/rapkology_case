@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Saira, Saira_Condensed } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
-
+import { Analytics } from "@vercel/analytics/next";
 const saira = Saira({
   variable: "--font-saira",
   subsets: ["latin"],
@@ -29,6 +29,7 @@ export default function RootLayout({
       <body
         className={` ${saira.variable} ${sairaCondensed.variable} antialiased `}
       >
+        <Analytics />
         <Header />
         <div className="max-w-[1440px] mx-auto ">{children}</div>
       </body>
