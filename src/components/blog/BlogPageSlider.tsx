@@ -23,7 +23,7 @@ const BlogPageSlider = (post: Post) => {
         <h2 className="md:text-2xl text-xl font-bold line-clamp-3 md:leading-7 leading-5.5">
           {post.attributes.desc}
         </h2>
-        <div className="w-140 md:hidden"></div>
+        <div className="w-140 hidden md:block"></div>
       </div>
     </Link>
   );

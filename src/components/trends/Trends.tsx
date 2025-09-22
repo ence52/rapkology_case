@@ -7,13 +7,9 @@ import mock_data from "@/data/mock_data";
 import TrendsTitle from "./TrendsTitle";
 import TrendsGrid from "./TrendsGrid";
 import Link from "next/link";
-import Tags from "../Tags";
-import { useData } from "@/context/DataContext";
+import Tags from "../tags/Tags";
+
 const Trends = () => {
-  const { setData } = useData();
-  useEffect(() => {
-    setData(mock_data);
-  }, []);
   return (
     <section className="w-full md:h-[854px] md:p-20 px-5 md:py-10 py-20 flex items-center flex-col md:gap-y-10 gap-y-5">
       <TrendsTitle />

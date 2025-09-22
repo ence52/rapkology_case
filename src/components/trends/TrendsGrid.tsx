@@ -3,7 +3,7 @@ import React from "react";
 import TrendCard from "./TrendCard";
 import mock_data from "@/data/mock_data";
 import Link from "next/link";
-import { useData } from "@/context/DataContext";
+import data from "@/data/mock_data";
 
 const TrendsGrid = ({
   cols,
@@ -14,7 +14,6 @@ const TrendsGrid = ({
   rows: number;
   isVertical: boolean;
 }) => {
-  const { data } = useData();
   return (
     <div
       className={`w-full h-full  grid ${isVertical ? "gap-10" : "gap-2.5"} ${

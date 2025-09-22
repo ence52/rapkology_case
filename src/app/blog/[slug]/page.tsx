@@ -1,21 +1,50 @@
-"use client";
 import mock_data from "@/data/mock_data";
-import { use } from "react";
 import Image from "next/image";
 import { FaRegHeart } from "react-icons/fa";
 import { HiOutlineChatBubbleOvalLeft } from "react-icons/hi2";
 import MoreContent from "@/components/more_content/MoreContent";
-import { usePathname } from "next/navigation";
 import Breadcrumbs from "@/components/BreadCrumbs";
 import { LuEye } from "react-icons/lu";
+import { Metadata } from "next";
+import data from "@/data/mock_data";
 
-export default function BlogPostPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = use(params);
+type Props = {
+  params: { slug: string };
+};
 
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const post = data.find((p) => p.attributes.slug === params.slug);
+
+  if (!post) {
+    return {
+      title: "Page Not Found | Rapkology",
+      description: "The content you are looking for could not be found.",
+    };
+  }
+
+  return {
+    title: post.attributes.seo.metaTitle,
+    description: post.attributes.seo.metaDescription,
+    alternates: {
+      canonical: `/blog/${post.attributes.seo.canonicalURL}`,
+    },
+    openGraph: {
+      title: post.attributes.seo.metaTitle,
+      description: post.attributes.seo.metaDescription,
+      url: `/blog/${post.attributes.seo.canonicalURL}`,
+      images: [
+        {
+          url: post.attributes.img,
+          alt: post.attributes.title,
+        },
+      ],
+      type: "article",
+    },
+  };
+}
+
+export default function BlogPostPage({ params }: { params: { slug: string } }) {
+  const { slug } = params;
   const post = mock_data.find((p) => p.attributes.slug === slug);
 
   if (!post) {
@@ -36,7 +65,7 @@ export default function BlogPostPage({
         {post.attributes.desc}
       </h2>
       <p className="text-base">{post.attributes.content}</p>
-      <div className="relative aspect-video w-full   ">
+      <div className="relative aspect-video w-full">
         <Image
           src={post.attributes.img}
           alt={post.attributes.title}
@@ -49,7 +78,7 @@ export default function BlogPostPage({
         {post.attributes.tags.map((tag) => (
           <span
             key={tag}
-            className="bg-theme-gray text-white text-sm  p-2.5 rounded"
+            className="bg-theme-gray text-white text-sm p-2.5 rounded"
           >
             {tag}
           </span>

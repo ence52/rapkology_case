@@ -1,29 +1,29 @@
 "use client";
-import BlogPageSlider from "@/components/BlogPageSlider";
+import BlogPageSlider from "@/components/blog/BlogPageSlider";
 import Breadcrumbs from "@/components/BreadCrumbs";
 import ExploreTitle from "@/components/explore/ExploreTitle";
 import Footer from "@/components/Footer";
 import Newsletter from "@/components/Newsletter";
-import Tags from "@/components/Tags";
+import Tags from "@/components/tags/Tags";
 import TrendsGrid from "@/components/trends/TrendsGrid";
 import TrendsTitle from "@/components/trends/TrendsTitle";
 import mock_data from "@/data/mock_data";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
-import BlogCard from "@/components/BlogCard";
+
+import BlogCard from "@/components/blog/BlogCard";
 import Link from "next/link";
 import ClipCard from "@/components/ClipCard";
 import { BsCameraVideoFill } from "react-icons/bs";
-import tags from "@/data/tags";
-import { useData } from "@/context/DataContext";
+import data from "@/data/mock_data";
 
 const Blog = () => {
-  const { setData } = useData();
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [swiperRef, setSwiperRef] = useState<any>(null);
   return (
     <div className="py-20 md:px-20 px-4 space-y-12 ">
       {/* Blog Hero Section */}
@@ -50,13 +50,8 @@ const Blog = () => {
           <div className="md:grid md:grid-cols-5 flex flex-col md:grid-rows-4 gap-y-2 gap-x-4">
             <div className="md:col-span-3 md:row-span-4 relative ">
               <Swiper
-                modules={[Pagination]}
-                pagination={{
-                  clickable: true,
-                  el: ".blog-pagination",
-                  bulletClass: "blog-bullet",
-                  bulletActiveClass: "blog-bullet-active",
-                }}
+                onSwiper={setSwiperRef}
+                onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
               >
                 {mock_data.map((item, index) => (
                   <SwiperSlide key={index} className="h-full">
@@ -64,16 +59,28 @@ const Blog = () => {
                   </SwiperSlide>
                 ))}
               </Swiper>
-              <div className="blog-pagination md:hidden gap-x-1 h-6 flex justify-center items-center "></div>
+              <div className="gap-x-1 md:hidden h-6 flex justify-center items-center ">
+                {data.map((_, index) => (
+                  <button
+                    onClick={() => {
+                      setActiveIndex(index);
+                      swiperRef?.slideTo(index);
+                    }}
+                    key={index}
+                    className={` rounded-full ${
+                      index === activeIndex
+                        ? "bg-theme-black h-2.5 w-2.5"
+                        : "bg-primary-darker h-2 w-2"
+                    }`}
+                  ></button>
+                ))}
+              </div>
             </div>
 
             {/* Right Side */}
             {mock_data.slice(0, 4).map((post, index) => (
               <BlogCard key={index} {...post} />
             ))}
-          </div>
-          <div className="blog-pagination gap-x-1 h-6 md:flex hidden items-center absolute left-1/2 z-30 -translate-x-[25%] bottom-10">
-            a
           </div>
         </div>
 
@@ -95,28 +102,29 @@ const Blog = () => {
             />
           </div>
         </div>
+        <div className="gap-x-1  h-6 flex justify-center items-center absolute bottom-25 left-[52%] -translate-x-1/2">
+          {data.map((_, index) => (
+            <button
+              onClick={() => {
+                setActiveIndex(index);
+                swiperRef?.slideTo(index);
+              }}
+              key={index}
+              className={` rounded-full ${
+                index === activeIndex
+                  ? "bg-theme-black h-2.5 w-2.5"
+                  : "bg-primary-darker h-2 w-2"
+              }`}
+            ></button>
+          ))}
+        </div>
       </div>
 
       {/* Explore Section */}
       <div id="explore" className="space-y-12 relative w-full overflow-hidden">
         <ExploreTitle />
         {/* Tags  */}
-        <div className="flex-wrap md:flex hidden gap-2 ">
-          {tags.map((tag, index) => (
-            <button
-              onClick={() =>
-                setData(
-                  mock_data.filter((post) => post.attributes.tags.includes(tag))
-                )
-              }
-              key={index}
-              className={`border cursor-pointer px-2 py-1 text-base overflow-clip 
-       `}
-            >
-              {tag}
-            </button>
-          ))}
-        </div>
+        <Tags />
         <TrendsGrid cols={4} rows={2} isVertical={true} />
         <div className="w-3/5 aspect-square absolute -z-10  top-8 -rotate-[14deg] -left-30">
           <Image

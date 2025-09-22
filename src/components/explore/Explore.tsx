@@ -1,13 +1,13 @@
 import React from "react";
 import Image from "next/image";
 import TrendCard from "../trends/TrendCard";
-import Tags from "../Tags";
+import Tags from "../tags/Tags";
 import Newsletter from "../Newsletter";
 import Footer from "../Footer";
 import ExploreTitle from "./ExploreTitle";
 import mock_data from "@/data/mock_data";
 import formatDate from "@/utils/FormatDate";
-import TagsTitle from "../TagsTitle";
+import TagsTitle from "../tags/TagsTitle";
 import Link from "next/link";
 
 const Explore = () => {
@@ -19,7 +19,7 @@ const Explore = () => {
       {/* Left Side */}
       <div className="md:col-span-2 pb-20  flex flex-col md:gap-y-10 gap-y-2">
         <ExploreTitle />
-        <div className="md:hidden flex pb-10">
+        <div className="md:hidden w-full pb-10">
           <Tags />
         </div>
         {mock_data.map((post, index) => (
